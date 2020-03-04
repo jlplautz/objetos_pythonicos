@@ -25,4 +25,4 @@ jobs:
 		
     - name: Test with pytest
       run: |
-        pipenv run pytest pythonpro --cov=pythonpro
+        pipenv run pytest objetos_pythonicos --cov=objetos_pythonicos
