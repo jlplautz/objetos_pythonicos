@@ -20,6 +20,3 @@ jobs:
     - name: Link with flake8
       run: |
         pipenv run flake8 .
-    - name: Test with pytest
-      run: |
-        pipenv run pytest objetos_pythonicos --cov=objetos_pythonicos
