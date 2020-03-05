@@ -78,7 +78,7 @@ Toda função lambda sempre retorna uma valor e nem precisamos inserir o return,
 Então esta caracterista que a função é um cidadão de primeira classe e podemos passar com argumento 
 é utilizada em varias bibliotecas embotidas no python
 ```
-<b>1.1.5- Ordenação </b>
+<b>1.1.6- Ordenação </b>
 ```
 A classe list do python possui um metodo de alta ordem que recebe como parametro Key uma função 
 na qual você pode determinar o criterio de ordenação. Esta função vai receber cada um dos elementos 
@@ -95,4 +95,32 @@ A função sorted() vai criar uma segunda lista baseado neste iteravel. E esta s
 def por_nome(aluno):
     return aluno[0]
 print(sorted(alunos, key=por_nome))
+```
+<b>1.1.7- Flitragem </b>
+
+<h3>Usando list comprehension</h3>
+```
+print([]) => usando os colchetes (criação de listas), vamos mencionar o que desejamos no resultado.
+print([ Vamos retornar a própria tupla (nome, nota) for nome, nota in alunos])  	
+temos que lembrar que podemos colocar um condição boleana aqui no final se  for true o elemento será incluido na lista.
+alunos = [('Plautz', 9), ('Gabriela', 10), ('Linda', 8)]
+print([(nome, nota) for nome, nota in alunos if nota > 8])
+
+Resultado => [('Plautz', 9), ('Gabriela', 10)]
+```
+<h3>Filter() - versão funcional </h3>
+```
+função de alta ordem ( que como primeiro parametro – recebe uma função que receberá cada um dos elementos 
+de um iteravel que deve ser passado como segundo parametro
+Escrevendo o codigo 
+- imprimir
+- transformar em lista o resultado que o filter vai retornar.
+- escrever a função
+def nota_maior_que_8(aluno):
+    # _, nao estamos interesssado no nome
+    _, nota = aluno
+    return nota > 8
+- nao esquecer que estamos passado a funnção como parametro sem os ()
+  segundo elemento que será o iteravel que queremos aplicar esta regra
+print(list(filter(nota_maior_que_8, alunos)))
 ```
