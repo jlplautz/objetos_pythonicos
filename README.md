@@ -88,7 +88,8 @@ alunos = [('Plautz', 9), ('Gabriela', 10), ('Linda', 8)]
 alunos.sort(key=lambda aluno: aluno[1])
 print(alunos)
 
-A função sorted() vai criar uma segunda lista baseado neste iteravel. E esta segunda lista estará ordenada.
+A função sorted() vai criar uma segunda lista baseado neste iteravel. 
+E esta segunda lista estará ordenada.
 - vamos passar a lista de alunos e
 - tambem esta função sorted() tem o parametro Key que pode receber uma função como parametro.
 
@@ -98,7 +99,7 @@ print(sorted(alunos, key=por_nome))
 ```
 <b>1.1.7- Flitragem </b>
 
-<h3>Usando list comprehension</h3>
+<b>Usando list comprehension</b>
 ```
 print([]) => usando os colchetes (criação de listas), vamos mencionar o que desejamos no resultado.
 print([ Vamos retornar a própria tupla (nome, nota) for nome, nota in alunos])  	
@@ -108,7 +109,8 @@ print([(nome, nota) for nome, nota in alunos if nota > 8])
 
 Resultado => [('Plautz', 9), ('Gabriela', 10)]
 ```
-<h3>Filter() - versão funcional </h3>
+
+<b>Filter() - versão funcional</b>
 ```
 função de alta ordem ( que como primeiro parametro – recebe uma função que receberá cada um dos elementos 
 de um iteravel que deve ser passado como segundo parametro
@@ -123,4 +125,24 @@ def nota_maior_que_8(aluno):
 - nao esquecer que estamos passado a funnção como parametro sem os ()
   segundo elemento que será o iteravel que queremos aplicar esta regra
 print(list(filter(nota_maior_que_8, alunos)))
+```
+
+<b>1.1.8- Mapeamento </b>
+```
+Trabalhando com a list comprehension e bem simples.
+Caso desejarmos retornar somente o nome, não será necessario criar a tupla.
+alunos = [('Plautz', 9), ('Gabriela', 10), ('Linda', 8)]
+print([nome for nome, nota in alunos if nota > 8])
+
+Resultado => ['Plautz', 'Gabriela']
+
+Podemos usar o mapeamento junto com a filtragem na versão funcional 
+  - como parametro iteravel desta segunda função podemos juntar a própria filtragem
+
+def extrair_nome(aluno):
+    nota, _ = aluno
+    return nome
+print(list(map(extrair_nome, filter(nota_maior_que_8, alunos))))
+
+Resultado => ['Plautz', 'Gabriela']
 ```
