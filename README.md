@@ -78,3 +78,21 @@ Toda função lambda sempre retorna uma valor e nem precisamos inserir o return,
 Então esta caracterista que a função é um cidadão de primeira classe e podemos passar com argumento 
 é utilizada em varias bibliotecas embotidas no python
 ```
+<b>1.1.5- Ordenação </b>
+```
+A classe list do python possui um metodo de alta ordem que recebe como parametro Key uma função 
+na qual você pode determinar o criterio de ordenação. Esta função vai receber cada um dos elementos 
+da lista e retornar um valor que seja ordenavel indicando o criterio de ordenação
+
+alunos = [('Plautz', 9), ('Gabriela', 10), ('Linda', 8)]
+alunos.sort(key=lambda aluno: aluno[1])
+print(alunos)
+
+A função sorted() vai criar uma segunda lista baseado neste iteravel. E esta segunda lista estará ordenada.
+- vamos passar a lista de alunos e
+- tambem esta função sorted() tem o parametro Key que pode receber uma função como parametro.
+
+def por_nome(aluno):
+    return aluno[0]
+print(sorted(alunos, key=por_nome))
+```
