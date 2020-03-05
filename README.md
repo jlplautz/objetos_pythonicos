@@ -73,4 +73,8 @@ dis(dobro.__code__.co_code)
 Função lambda,  => nada mais é do que uma função anômina
 Toda função lambda sempre retorna uma valor e nem precisamos inserir o return, pois esta é a natureza.
 ```
-
+<b>1.1.5- Função como Argumento </b>
+```
+Então esta caracterista que a função é um cidadão de primeira classe e podemos passar com argumento 
+é utilizada em varias bibliotecas embotidas no python
+```
