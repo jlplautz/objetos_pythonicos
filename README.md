@@ -25,3 +25,15 @@ requirements:
 ```
 objetos_pythonicos $ pipenv install --dev pytest
 ```
+
+<b>1.1.2- Namespaces </b>
+```
+- criar o python package 'namespaces' e python file 'namespace_global'
+├── LICENSE
+├── namespaces
+│   ├── __init__.py
+│   └── namespace_global.py
+├── Pipfile
+├── Pipfile.lock
+└── README.md
+```
