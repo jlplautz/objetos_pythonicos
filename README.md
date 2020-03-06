@@ -146,3 +146,17 @@ print(list(map(extrair_nome, filter(nota_maior_que_8, alunos))))
 
 Resultado => ['Plautz', 'Gabriela']
 ```
+<b>1.1.9- Módulo Operator </b>
+```
+operator.itemgetter  => vai construir uma função em tempo de execução, 
+na qual possamos extrair um elemento em determinada posição de um iteravel
+
+print(list(map(operator.itemgetter(0), filter(nota_maior_que_8, alunos))))
+
+Resultado => ['Plautz', 'Gabriela']
+
+Conclusão: 
+Toda vez que você precisar usar uma função para fazer um mapeamento ou uma filtragem 
+e como esta função já existe no python (operator), possivelemente podemos encontrar 
+esta função já definida dentro do modulo operator
+```

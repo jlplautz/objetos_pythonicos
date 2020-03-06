@@ -1,3 +1,5 @@
+import operator
+
 alunos = [('Plautz', 9), ('Gabriela', 10), ('Linda', 8)]
 
 # filtragem
@@ -19,9 +21,10 @@ def nota_maior_que_8(aluno):
 print(list(filter(nota_maior_que_8, alunos)))
 
 
-def extrair_nome(aluno):
-    nome, _ = aluno
-    return nome
+# def extrair_nome(aluno):
+#     nome, _ = aluno
+#     return nome
+# print(list(map(extrair_nome, filter(nota_maior_que_8, alunos))))
 
-
-print(list(map(extrair_nome, filter(nota_maior_que_8, alunos))))
+# Usando o operator
+print(list(map(operator.itemgetter(0), filter(nota_maior_que_8, alunos))))
