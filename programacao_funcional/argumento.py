@@ -2,7 +2,7 @@
 >>> def ola():
 ...     print('Olá')
 ...
->>> executar(ola)
+>>> executar1(ola)
 Olá
 >>> executar(ola, 2)
 Olá
