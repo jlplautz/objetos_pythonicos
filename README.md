@@ -160,3 +160,38 @@ Toda vez que você precisar usar uma função para fazer um mapeamento ou uma fi
 e como esta função já existe no python (operator), possivelemente podemos encontrar 
 esta função já definida dentro do modulo operator
 ```
+
+<b>1.2- Decorator </b>
+
+<b>1.2.1- Função como Retorno de outra Função </b>
+```
+Portanto estamos criando função em tempo de execução. Cada vez que executamos 
+fabrica_de_multiplicadores() estamos criando uma função dobro
+ Por isso essa funçoes chamam factory, que servem para construi outros objetos ou outras funçoes.
+
+dobro_externo = fabrica_de_multiplicadores()
+dobro_externo2 = fabrica_de_multiplicadores()
+print(dobro_externo is dobro_externo2)
+print(dobro_externo(3))
+Resultado:
+False   <= print(dobro_externo is dobro_externo2)
+6	    <= print(dobro_externo(3))
+
+Conclusão:
+
+- tudo o que podemos fazer com objeto do tipo int , string tambem podemos com objeto do tipo função.
+- incluindo a sua criação em variavel local dentro de escopo de outras funçoes e retornar esta função 
+  que foi criada neste escopo local como o resultado da execução de outra função 
+```
+
+<b>1.2.2- Closure </b>
+```
+Clausura (ciência da computação)
+Em ciência da computação e na programação uma clausura (do inglês closure) é uma função que referencia variáveis livres 
+no contexto léxico. Uma clausura ocorre normalmente quando uma função é declarada dentro do corpo de outra, e a função 
+interior referencia variáveis locais da função exterior. Em tempo de execução, quando a função exterior é executada, 
+então uma clausura é formada, que consiste do código da função interior e referências para quaisquer variáveis no 
+âmbito da função exterior que a...
+
+Closure => é o conjunto de valores existente no escopo da criação de uma função ao qual ela tambem tenha acesso.
+```
