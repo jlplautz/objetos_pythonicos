@@ -195,3 +195,68 @@ então uma clausura é formada, que consiste do código da função interior e r
 
 Closure => é o conjunto de valores existente no escopo da criação de uma função ao qual ela tambem tenha acesso.
 ```
+
+<b>1.2.3- Nonlocal e Global </b>
+```
+o escopo padrao do python é escopo estatico, quando apenas acessamos uma variavel mas não alteramos se valor.
+
+No python2 a solição: ai invel de usar um inteiro que um objeto imutavel, utilizavasse um objeto mutavel exemplo 
+uma lista. Desta firma com a lista é mutavel, al inves de mudar o valor desta variavel que pertence ao escopo de 
+criação da função contar(), fazia era, acessar o elemento desta lista e incrementar o valor de 1
+
+def fabrica_de_contador():
+    contador = [0]
+
+    def contar():
+        contador[0] += 1
+        return contador[0]
+
+    return contar
+
+contador = fabrica_de_contador()
+contador_2 = fabrica_de_contador()
+print(contador())
+print(contador())
+print(contador())
+print(contador_2())
+print(contador_2())
+
+Resultado:
+1
+2
+3
+1
+2
+
+No python3 foi alterado este esquema. Invez de criar um objeto mutavel que torna o codigo mais dificil de ler. 
+Existe uma palavra reservada nonlocal. Apartir do momento que declaramos o contador como nonlocal, ele sabe que 
+vai acessar esta variavel de um contexto externo ao da execução desta função contar
+
+def fabrica_de_contador():
+    contador = 0
+    def contar():
+        nonlocal contador
+        contador += 1
+        return contador
+    return contar
+
+Se trocamos no nonlocal por global
+conseguimos definir que este contador tera acesso global
+Aqui temos um problema: pois o contador é global e sempre estamos alterando seu valor, 
+a referencia do contador como contador_2 será a mesma posição. 
+Sim quando executamos a função ambas irão alterar o mesmo objeto
+
+_contador = 0
+
+
+def fabrica_de_contador():
+    def contar():
+        global _contador
+        _contador += 1
+        return _contador
+
+    return contar
+
+contador = fabrica_de_contador()
+contador_2 = fabrica_de_contador()
+```
