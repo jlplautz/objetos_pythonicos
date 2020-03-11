@@ -260,3 +260,11 @@ def fabrica_de_contador():
 contador = fabrica_de_contador()
 contador_2 = fabrica_de_contador()
 ```
+
+<b>1.2.3- Decorator Marcador  </b>
+```
+O que acontee que na programação funcional, este codigo é um design patterns. 
+Receber a função como parametro e depois alterar a própria referencia da original desta 
+função que foi passada como parametro é muito comum. Por isto em python foi criado um 
+açúcar sintatico que faze exatamente esta operação, de forma mais elegante
+```
