@@ -261,10 +261,56 @@ contador = fabrica_de_contador()
 contador_2 = fabrica_de_contador()
 ```
 
-<b>1.2.3- Decorator Marcador  </b>
+<b>1.2.4- Decorator Marcador  </b>
 ```
 O que acontee que na programação funcional, este codigo é um design patterns. 
 Receber a função como parametro e depois alterar a própria referencia da original desta 
 função que foi passada como parametro é muito comum. Por isto em python foi criado um 
 açúcar sintatico que faze exatamente esta operação, de forma mais elegante
+```
+
+<b>1.2.5- Decorator Modificador </b>
+
+Funçoes sem o decorator !!!!
+```
+from time import sleep
+
+def mochileiro():
+    print(strftime('%H:%M:%S'))
+    return 42
+def ola(nome):
+    print(strftime('%H:%M:%S'))
+    return f'Olá {nome}'
+if __name__ == '__main__':
+    print(mochileiro())
+    print(ola('Plautz'))
+    sleep(1)
+    print(mochileiro())
+    print(ola('Linda'))
+```
+Funçoes com o decorator !!!!
+```
+from time import sleep, strftime
+
+def logar(f):
+    def executar_com_tempo(*arg, **kwargs):
+        print(strftime('%H:%M:%S'))
+        return f(*arg, **kwargs)
+
+    return executar_com_tempo
+
+@logar
+def mochileiro():
+    return 42
+
+@logar
+def ola(nome):
+    return f'Olá {nome}'
+
+if __name__ == '__main__':
+    print(mochileiro())
+    print(ola('Plautz'))
+    sleep(1)
+    print(mochileiro())
+    print(ola('Linda'))
 ```
