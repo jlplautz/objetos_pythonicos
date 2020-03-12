@@ -314,3 +314,18 @@ if __name__ == '__main__':
     print(mochileiro())
     print(ola('Linda'))
 ```
+<b>1.2.6- Wraps </b>
+```
+@wraps ==> funciona da seguinte maneira: vamos passar na função interna que será retornada 
+neste decorator e vai informar como parametro do wraps(f) quem é a função original a qual esta 
+função interna irá substituir. Desta forma este wraps vai ajustar o __name__ entre outros 
+parametros para bater com a função original.
+
+def logar(f):
+    @wraps(f)
+    def executar_com_tempo(*arg, **kwargs):
+        print(strftime('%H:%M:%S'))
+        return f(*arg, **kwargs)
+
+    return executar_com_tempo
+```
