@@ -329,3 +329,13 @@ def logar(f):
 
     return executar_com_tempo
 ```
+
+# 1.2.7- Decorator com Parâmetros 
+
+# 1.2.8- Decorator com Parâmetro Opcional 
+
+# 1.2.9- Lib Decorator  
+
+<b>Podemos utilizar a lib decorator que facilita a criação de decorator</b>
+- ajuda termitindo que já declaremos a função e os parametros de uma única vez.
+- vai manter assinatura da função original.

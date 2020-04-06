@@ -1,27 +1,26 @@
-from functools import wraps
 from time import sleep, strftime
 
-
-def logar(f):
-    @wraps(f)
-    def executar_com_tempo(*arg, **kwargs):
-        print(strftime('%H:%M:%S'))
-        return f(*arg, **kwargs)
-
-    return executar_com_tempo
+from decorator import getfullargspec, decorator
 
 
-@logar
+@decorator
+def logar(f, fmt='%H:%M:%S', *args, **kwargs):
+    print(strftime(fmt))
+    return f(*args, **kwargs)
+
+
+@logar()
 def mochileiro():
     return 42
 
 
-@logar
+@logar(fmt='%d/%m/%Y %H:%M:%S')
 def ola(nome):
     return f'Olá {nome}'
 
 
 if __name__ == '__main__':
+    print(getfullargspec(ola))
     print(mochileiro())
     print(mochileiro.__name__)
     print(ola('Plautz'))
