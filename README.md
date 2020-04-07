@@ -333,9 +333,66 @@ def logar(f):
 # 1.2.7- Decorator com Parâmetros 
 
 # 1.2.8- Decorator com Parâmetro Opcional 
+```
+"""
+>>> app = Flask()
+>>> set(app.rotas)
+set()
+>>> @app.rota('/')
+... def raiz():
+...     return 'raiz'
+...
+>>> set(app.rotas)
+{'/'}
+>>> raiz()
+'raiz'
+>>> app.executar('/')
+'raiz'
+>>> @app.rota('/nome')
+... def nome(usuario):
+...     return f'Nome: {usuario}'
+...
+>>> list(app.rotas)
+['/', '/nome']
+>>> nome('Python')
+'Nome: Python'
+>>> app.executar('/nome', 'Pro')
+'Nome: Pro'
+>>> app.executar('/nao_existe')
+404
+"""
+```
 
 # 1.2.9- Lib Decorator  
 
 <b>Podemos utilizar a lib decorator que facilita a criação de decorator</b>
 - ajuda termitindo que já declaremos a função e os parametros de uma única vez.
 - vai manter assinatura da função original.
+
+# 1.2.10- Enunciado Flask Simplificado 
+
+# # 1.2.11- Solução Flask Simplificado 
+```
+class Flask():
+    def __init__(self):
+        self.rotas = dict()
+
+    def rota(self, path):
+        def decorator(f):
+            self.rotas[path] = f
+            return f
+
+        return decorator
+
+    def executar(self, path, *args, **kwargs):
+        if path not in self.rotas:
+            return 404
+        f = self.rotas[path]
+        return f(*args, **kwargs)
+```
+
+# Aulas Antigas Objetos Pythônicos
+
+# Conceitos OO 
+
+# Tudo é Objeto 
