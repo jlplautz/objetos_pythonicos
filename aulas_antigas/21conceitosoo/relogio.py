@@ -17,5 +17,4 @@ def tictac():
 
 tictac()
 
-
 relogio.mainloop()
