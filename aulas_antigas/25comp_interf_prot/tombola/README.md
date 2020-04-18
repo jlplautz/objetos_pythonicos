@@ -2,7 +2,7 @@
 
 Uma tombola pode ser criada da seguinte maneira:
 ```Python
-    >>> from tombola import tombola
+    >>> import tombola
     >>> t = tombola.Tombola()
    
 ```
@@ -10,8 +10,7 @@ Uma tombola pode ser criada da seguinte maneira:
 Apos a criação os itens da tombola são representados por uma lista vazia
 ```Python
     >>> t.itens
-    []
-
+    
 ```
 
 uma lista recem criada não possui elementos. Portanto o metodo 'carregada"
